@@ -100,9 +100,25 @@ button:hover {
 
 select option:disabled {
     color: #999; /* Cor mais clara para a opção desabilitada */
-    font-style: italic; /* Opcional: deixa o texto em itálico */
+    font-style: italic; /* Deixa o texto em itálico */
 }
 
 select option:not(:disabled) {
     color: #333; /* Cor normal para as outras opções */
+}
+footer {
+    position: fixed; /* Fixa o footer na tela */
+    bottom: 0; /* Coloca no rodapé */
+    right: 0; /* Alinha à direita */
+    padding: 10px; /* Espaçamento interno */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+    font-size: 14px; /* Tamanho da fonte */
+    color: #808080; /* Cor do texto */
+    font-style: italic; /* Texto em itálico */
+    border-top-left-radius: 5px; /* Borda arredondada no canto superior esquerdo */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 40px; /* Altura do rodapé */
 }

@@ -1,0 +1,22 @@
+name: Build and Deploy Site
+
+on:
+  push:
+    branches:
+      - main  # Executa o fluxo quando houver push na branch "main"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest  # Executa em um ambiente Ubuntu
+
+    steps:
+      # Passo 1: Baixa o código do repositório
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Passo 5: Implanta no GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Token de autenticação
+          publish_dir: ./main  # Pasta onde estão os arquivos do site (ajuste conforme seu projeto)

@@ -106,6 +106,7 @@ select option:disabled {
 select option:not(:disabled) {
     color: #333; /* Cor normal para as outras opções */
 }
+
 footer {
     font-family: "Lucida Console", "Courier New", monospace; /* Fonte do texto */
     position: fixed; /* Fixa o footer na tela */

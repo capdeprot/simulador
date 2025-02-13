@@ -170,6 +170,10 @@ function calculate() {
             }
             break;
 
+        case 'certificado_manutencao':
+            valor = area * 1.85;
+            break;
+
         case 'tanques_bombas':
             valor = area * 223.06;
             break;

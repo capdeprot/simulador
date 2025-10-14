@@ -22,6 +22,7 @@
                     <option value="execucao">Alvará de Execução</option>
                     <option value="reforma">Alvará de Aprovação de Reforma</option>
                     <option value="projeto_modificativo_edificacao">Projeto Modificativo de Alvará de Aprovação e Execução de Edificação Nova</option>
+                    <option value="projeto_modificativo_reforma">Projeto Modificativo de Alvará de Aprovação e Execução de Reforma</option>
                     <option value="avanco_grua">Alvará de Autorização de Avanço de Grua Sobre o Espaço Público</option>
                     <option value="tapume">Avanço do tapume sobre parte do passeio público</option>
                     <option value="estande_vendas">Alvará de Autorização de Implantação e/ou Utilização de Estande de Vendas</option>
@@ -39,14 +40,34 @@
                 </select>
             </div>
 
-            <div class="form-section">
+            <!-- Campos padrão -->
+            <div id="areaStandardContainer" class="form-section">
                 <label id="areaLabel" for="area">Informe a área em m²:</label>
-                <input type="number" id="area" step="1" min="0" required>
+                <input type="number" id="area" step="1" min="0">
             </div>
 
             <div id="areaConstruidaContainer" class="form-section">
                 <label for="areaConstruida">Informe a área total construída em m²:</label>
-                <input type="number" id="areaConstruida" step="1" min="0" required>
+                <input type="number" id="areaConstruida" step="1" min="0">
+            </div>
+
+            <!-- Campos específicos para Projeto Modificativo de Reforma -->
+            <div id="projetoModificativoReformaContainer" class="form-section" style="display: none;">
+                <h3>Quadro de áreas (Projeto Aprovado)</h3>
+                <label for="areaConstruirAprovado">Área a construir:</label>
+                <input type="number" id="areaConstruirAprovado" step="1" min="0">
+                <label for="areaReformarAprovado">Área a reformar:</label>
+                <input type="number" id="areaReformarAprovado" step="1" min="0">
+                <label for="areaTotalAprovado">Área total:</label>
+                <input type="number" id="areaTotalAprovado" step="1" min="0">
+            
+                <h3>Quadro de áreas (Projeto Modificativo)</h3>
+                <label for="areaConstruirModificativo">Área a construir:</label>
+                <input type="number" id="areaConstruirModificativo" step="1" min="0">
+                <label for="areaReformarModificativo">Área a reformar:</label>
+                <input type="number" id="areaReformarModificativo" step="1" min="0">
+                <label for="areaTotalModificativo">Área total:</label>
+                <input type="number" id="areaTotalModificativo" step="1" min="0">
             </div>
 
             <button type="button" onclick="calculate()">Calcular</button>

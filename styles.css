@@ -112,12 +112,14 @@ select option:not(:disabled) {
 }
 
 footer {
-    font-family: 'Copperplate', 'Copperplate Gothic Light', fantasy, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
     position: fixed;
     bottom: 0;
     right: 0;
     padding: 10px;
-    font-size: 12px;
+    font-size: 10px;
     color: #696969;
     font-weight: bold;
     border-top-left-radius: 5px;

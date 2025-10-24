@@ -59,10 +59,11 @@ function changeLabel() {
             areaLabel.textContent = 'Área a construir (m²):';
             break;
 
-        case 'tapume':
         case 'avanco_grua':
+        case 'tapume':
             areaStandardContainer.style.display = 'block';
-            areaLabel.textContent = 'Área construída (m²):';
+            quantidadeUnidadesContainer.style.display = 'block';
+            areaLabel.textContent = 'Informe a área construída em m²:';
             break;
 
         case 'tanques_bombas':
@@ -241,14 +242,13 @@ function calculate() {
 
         case 'avanco_grua':
         case 'tapume':
-            var area = document.getElementById('area').value;
-            if (!validateRequired(area, 'a área construída')) return;
-            area = parseFloat(area);
+            var area = parseFloat(document.getElementById('area').value);
+            var quantidadeUnidades = parseFloat(document.getElementById('quantidadeUnidades').value);
             
             if (area <= 1500) {
-                valor = 1040.89;
+                valor = 1040.89 * quantidadeUnidades;
             } else if (area > 1500) {
-                valor = 2081.82;
+                valor = 2081.82 * quantidadeUnidades;
             } else {
                 valor = 0;
             }

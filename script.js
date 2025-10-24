@@ -12,6 +12,7 @@ function changeLabel() {
     document.getElementById('area').value = '';
     document.getElementById('areaConstruida').value = '';
     document.getElementById('areaRegularizar').value = '';
+    document.getElementById('quantidadeUnidades').value = '1';
     document.getElementById('areaConstruirAprovado').value = '';
     document.getElementById('areaReformarAprovado').value = '';
     document.getElementById('areaRegularizarAprovado').value = '';
@@ -27,12 +28,14 @@ function changeLabel() {
     var areaStandardContainer = document.getElementById('areaStandardContainer');
     var areaConstruidaContainer = document.getElementById('areaConstruidaContainer');
     var areaRegularizarContainer = document.getElementById('areaRegularizarContainer');
+    var quantidadeUnidadesContainer = document.getElementById('quantidadeUnidadesContainer');
     var projetoModificativoContainer = document.getElementById('projetoModificativoReformaContainer');
 
     // Ocultar todos os containers primeiro
     areaStandardContainer.style.display = 'none';
     areaConstruidaContainer.style.display = 'none';
     areaRegularizarContainer.style.display = 'none';
+    quantidadeUnidadesContainer.style.display = 'none';
     projetoModificativoContainer.style.display = 'none';
 
     switch (assunto) {

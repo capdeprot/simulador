@@ -40,14 +40,14 @@ function changeLabel() {
             areaStandardContainer.style.display = 'block';
             areaConstruidaContainer.style.display = 'block';
             areaRegularizarContainer.style.display = 'block';
-            areaLabel.textContent = 'Informe a área a ser reformada em m²:';
+            areaLabel.textContent = 'Área a reformar (m²):';
             break;
 
         case 'projeto_modificativo_edificacao':
             areaStandardContainer.style.display = 'block';
             areaConstruidaContainer.style.display = 'block';
-            areaLabel.textContent = 'Informe a área total na planta do Projeto Modificativo em m²:';
-            document.querySelector('#areaConstruidaContainer label').textContent = 'Área total construída no alvará:';
+            areaLabel.textContent = 'Área total na planta do Projeto Modificativo (m²):';
+            document.querySelector('#areaConstruidaContainer label').textContent = 'Área total construída no alvará (m²):';
             break;
             
         case 'projeto_modificativo_reforma':
@@ -56,13 +56,13 @@ function changeLabel() {
 
         case 'edificacao_nova':
             areaStandardContainer.style.display = 'block';
-            areaLabel.textContent = 'Informe a área a ser construída em m²:';
+            areaLabel.textContent = 'Área a construir (m²):';
             break;
 
         case 'tapume':
         case 'avanco_grua':
             areaStandardContainer.style.display = 'block';
-            areaLabel.textContent = 'Informe a área construída em m²:';
+            areaLabel.textContent = 'Área construída (m²):';
             break;
 
         case 'tanques_bombas':
@@ -75,13 +75,13 @@ function changeLabel() {
         case 'certificado_seguranca':
             areaStandardContainer.style.display = 'block';
             areaConstruidaContainer.style.display = 'block';
-            areaLabel.textContent = 'Informe a área objeto do pedido em m²:';
-            document.querySelector('#areaConstruidaContainer label').textContent = 'Informe a área total construída em m²:';
+            areaLabel.textContent = 'Área objeto do pedido (m²):';
+            document.querySelector('#areaConstruidaContainer label').textContent = 'Área total construída (m²):';
             break;
 
         default:
             areaStandardContainer.style.display = 'block';
-            areaLabel.textContent = 'Informe a área objeto do pedido em m²:';
+            areaLabel.textContent = 'Área objeto do pedido (m²):';
             break;
     }
 }
@@ -114,7 +114,7 @@ function calculate() {
     switch (assunto) {
         case 'edificacao_nova':
             var area = document.getElementById('area').value;
-            if (!validateRequired(area, 'a área a ser construída')) return;
+            if (!validateRequired(area, 'a área a construir')) return;
             area = parseFloat(area);
             
             if (area <= 1500) {
@@ -130,7 +130,7 @@ function calculate() {
             var area = document.getElementById('area').value;
             var areaConstruida = document.getElementById('areaConstruida').value;
             
-            if (!validateRequired(area, 'a área a ser reformada')) return;
+            if (!validateRequired(area, 'a área a reformar')) return;
             if (!validateRequired(areaConstruida, 'a área total construída')) return;
             
             area = parseFloat(area);

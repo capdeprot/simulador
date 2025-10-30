@@ -51,10 +51,19 @@
                 <input type="number" id="areaConstruida" step="1" min="0" required>
             </div>
 
-            <!-- Campo específico para Área a Regularizar na Reforma (OPCIONAL) -->
-            <div id="areaRegularizarContainer" class="form-section" style="display: none;">
-                <label for="areaRegularizar">Área a regularizar (m²):</label>
-                <input type="number" id="areaRegularizar" step="1" min="0">
+            <!-- Campos específicos para Reforma -->
+            <div id="reformaContainer" class="form-section" style="display: none;">
+                <label for="areaTotalUso">Área Total referente ao uso indicado (Computável + Não Computável) *</label>
+                <input type="number" id="areaTotalUso" step="1" min="0" required>
+                
+                <label for="areaTotalReformar">Total de Área a Reformar (Computável + Não Computável)</label>
+                <input type="number" id="areaTotalReformar" step="1" min="0">
+                
+                <label for="areaTotalRegularizar">Total de Área a Regularizar (Computável + Não Computável)</label>
+                <input type="number" id="areaTotalRegularizar" step="1" min="0">
+                
+                <label for="areaTotalConstruir">Total de Área a Construir (Computável + Não Computável)</label>
+                <input type="number" id="areaTotalConstruir" step="1" min="0">
             </div>
             
             <!-- Campo específico para Quantidade de Unidades -->

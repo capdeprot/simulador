@@ -11,8 +11,15 @@ function changeLabel() {
     // Limpar todos os campos
     document.getElementById('area').value = '';
     document.getElementById('areaConstruida').value = '';
-    document.getElementById('areaRegularizar').value = '';
     document.getElementById('quantidadeUnidades').value = '1';
+    
+    // Limpar campos da reforma
+    document.getElementById('areaTotalUso').value = '';
+    document.getElementById('areaTotalReformar').value = '';
+    document.getElementById('areaTotalRegularizar').value = '';
+    document.getElementById('areaTotalConstruir').value = '';
+    
+    // Limpar campos do projeto modificativo de reforma
     document.getElementById('areaConstruirAprovado').value = '';
     document.getElementById('areaReformarAprovado').value = '';
     document.getElementById('areaRegularizarAprovado').value = '';
@@ -21,29 +28,27 @@ function changeLabel() {
     document.getElementById('areaReformarModificativo').value = '';
     document.getElementById('areaRegularizarModificativo').value = '';
     document.getElementById('areaTotalModificativo').value = '';
+    
     document.getElementById('resultado').textContent = '';
     
     var assunto = document.getElementById('assunto').value;
     var areaLabel = document.getElementById('areaLabel');
     var areaStandardContainer = document.getElementById('areaStandardContainer');
     var areaConstruidaContainer = document.getElementById('areaConstruidaContainer');
-    var areaRegularizarContainer = document.getElementById('areaRegularizarContainer');
+    var reformaContainer = document.getElementById('reformaContainer');
     var quantidadeUnidadesContainer = document.getElementById('quantidadeUnidadesContainer');
     var projetoModificativoContainer = document.getElementById('projetoModificativoReformaContainer');
 
     // Ocultar todos os containers primeiro
     areaStandardContainer.style.display = 'none';
     areaConstruidaContainer.style.display = 'none';
-    areaRegularizarContainer.style.display = 'none';
+    reformaContainer.style.display = 'none';
     quantidadeUnidadesContainer.style.display = 'none';
     projetoModificativoContainer.style.display = 'none';
 
     switch (assunto) {
         case 'reforma':
-            areaStandardContainer.style.display = 'block';
-            areaConstruidaContainer.style.display = 'block';
-            areaRegularizarContainer.style.display = 'block';
-            areaLabel.textContent = 'Área a reformar (m²):';
+            reformaContainer.style.display = 'block';
             break;
 
         case 'projeto_modificativo_edificacao':
@@ -110,7 +115,7 @@ function calculate() {
         return true;
     }
 
-    // Função auxiliar para campos opcionais (área a regularizar)
+    // Função auxiliar para campos opcionais
     function parseOptional(value) {
         return value === '' ? 0 : parseFloat(value);
     }
@@ -131,24 +136,29 @@ function calculate() {
             break;
 
         case 'reforma':
-            var area = document.getElementById('area').value;
-            var areaConstruida = document.getElementById('areaConstruida').value;
+            // Obter valores dos campos específicos da reforma
+            var areaTotalUso = document.getElementById('areaTotalUso').value;
+            var areaTotalReformar = document.getElementById('areaTotalReformar').value;
+            var areaTotalRegularizar = document.getElementById('areaTotalRegularizar').value;
+            var areaTotalConstruir = document.getElementById('areaTotalConstruir').value;
             
-            if (!validateRequired(area, 'a área a reformar')) return;
-            if (!validateRequired(areaConstruida, 'a área total construída')) return;
+            // Validar campo obrigatório
+            if (!validateRequired(areaTotalUso, 'a Área Total referente ao uso indicado')) return;
             
-            area = parseFloat(area);
-            areaConstruida = parseFloat(areaConstruida);
-            var areaRegularizar = parseOptional(document.getElementById('areaRegularizar').value);
+            // Converter valores
+            areaTotalUso = parseFloat(areaTotalUso);
+            areaTotalReformar = parseOptional(areaTotalReformar);
+            areaTotalRegularizar = parseOptional(areaTotalRegularizar);
+            areaTotalConstruir = parseOptional(areaTotalConstruir);
             
-            // Cálculo base para reforma
-            if (areaConstruida <= 1500) {
-                valor = (area * 6.69) + (areaRegularizar * 5.94);
-            } else if (areaConstruida <= 20000) {
-                valor = (area * 8.93) + (areaRegularizar * 8.93);
+            if (areaTotalUso <= 1500) {
+                valor = (areaTotalReformar * 6.69) + (areaTotalRegularizar * 5.94) + (areaTotalConstruir * 6.69);
+            } else if (areaTotalUso <= 20000) {
+                valor = (areaTotalReformar * 8.93) + (areaTotalRegularizar * 8.93) + (areaTotalConstruir * 8.93);
             } else {
-                valor = (area * 11.90) + (areaRegularizar * 11.90);
+                valor = (areaTotalReformar * 11.90) + (areaTotalRegularizar * 11.90) + (areaTotalConstruir * 11.90);
             }
+            
             break;
 
         case 'projeto_modificativo_edificacao':

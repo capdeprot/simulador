@@ -52,8 +52,8 @@ function changeLabel() {
             break;
 
         case 'projeto_modificativo_edificacao':
-            areaStandardContainer.style.display = 'block';
             areaConstruidaContainer.style.display = 'block';
+            areaStandardContainer.style.display = 'block';
             document.querySelector('#areaConstruidaContainer label').textContent = 'Área total construída no alvará (m²):';
             areaLabel.textContent = 'Área total na planta do Projeto Modificativo (m²):';
             break;

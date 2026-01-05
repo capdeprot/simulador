@@ -268,11 +268,11 @@ function calculate() {
             break;
 
         case 'alvara_heliponto':
-            valor = 2160.00;
+            valor = 2260.00;
             break;
 
         case 'execucao_erb':
-            valor = 239.00;
+            valor = 250.00;
             break;
 
         case 'estande_vendas':
@@ -307,7 +307,7 @@ function calculate() {
             var area = document.getElementById('area').value;
             if (!validateRequired(area, 'a área')) return;
             area = parseFloat(area);
-            valor = area * 3.10;
+            valor = area * 3.25;
             break;
 
         case 'sistema_seguranca':
@@ -332,7 +332,7 @@ function calculate() {
             var area = document.getElementById('area').value;
             if (!validateRequired(area, 'a área')) return;
             area = parseFloat(area);
-            valor = area * 1.85;
+            valor = area * 1.90;
             break;
 
         case 'tanques_bombas':
@@ -347,7 +347,7 @@ function calculate() {
             var area = document.getElementById('area').value;
             if (!validateRequired(area, 'a área')) return;
             area = parseFloat(area);
-            valor = area * 0.34;
+            valor = area * 0.35;
             break;
 
         case 'reparcelamento':

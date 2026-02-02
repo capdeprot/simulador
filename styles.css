@@ -128,3 +128,23 @@ footer {
     justify-content: flex-end;
     height: 40px;
 }
+
+.observacao {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.observacao a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.observacao a:hover {
+    text-decoration: underline;
+    color: #005bb5;
+}

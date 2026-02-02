@@ -127,11 +127,11 @@ function calculate() {
             area = parseFloat(area);
             
             if (area <= 1500) {
-                valor = area * 6.69;
+                valor = area * 6.97;
             } else if (area <= 20000) {
-                valor = area * 8.93;
+                valor = area * 9.31;
             } else {
-                valor = area * 11.90;
+                valor = area * 12.41;
             }
             break;
 
@@ -152,11 +152,11 @@ function calculate() {
             areaTotalConstruir = parseOptional(areaTotalConstruir);
             
             if (areaTotalUso <= 1500) {
-                valor = (areaTotalReformar * 6.69) + (areaTotalRegularizar * 5.94) + (areaTotalConstruir * 6.69);
+                valor = (areaTotalReformar * 6.97) + (areaTotalRegularizar * 6.19) + (areaTotalConstruir * 6.97);
             } else if (areaTotalUso <= 20000) {
-                valor = (areaTotalReformar * 8.93) + (areaTotalRegularizar * 8.93) + (areaTotalConstruir * 8.93);
+                valor = (areaTotalReformar * 9.31) + (areaTotalRegularizar * 9.31) + (areaTotalConstruir * 9.31);
             } else {
-                valor = (areaTotalReformar * 11.90) + (areaTotalRegularizar * 11.90) + (areaTotalConstruir * 11.90);
+                valor = (areaTotalReformar * 12.41) + (areaTotalRegularizar * 12.41) + (areaTotalConstruir * 12.41);
             }
             
             break;
@@ -173,21 +173,21 @@ function calculate() {
             
             if (area <= 1500) {
               if (area <= areaConstruida) {
-                valor = area * 3.73;
+                valor = area * 3.89;
               } else {
-                valor = (area - areaConstruida) * 6.69 + (areaConstruida * 3.73);
+                valor = (area - areaConstruida) * 6.97 + (areaConstruida * 3.89);
               }
             } else if (area <= 20000) {
                 if (area <= areaConstruida) {
-                valor = area * 4.47;
+                valor = area * 4.66;
               } else {
-                valor = (area - areaConstruida) * 8.93 + (areaConstruida * 4.47);
+                valor = (area - areaConstruida) * 9.31 + (areaConstruida * 4.66);
               }
             } else {
                 if (area <= areaConstruida) {
-                valor = area * 5.94;
+                valor = area * 6.19;
               } else {
-                valor = (area - areaConstruida) * 11.90 + (areaConstruida * 5.94);
+                valor = (area - areaConstruida) * 12.41 + (areaConstruida * 6.19);
               }
             }
             break;
@@ -234,20 +234,20 @@ function calculate() {
             }
             
             if (areaTotalModificativo <= 1500) {
-                areaModificada = areaModificada * 1.49;
-                diferencaConstruir = diferencaConstruir * 6.69;
-                diferencaReformar = diferencaReformar * 6.69;
-                diferencaRegularizar = diferencaRegularizar * 5.94;
+                areaModificada = areaModificada * 1.55;
+                diferencaConstruir = diferencaConstruir * 6.97;
+                diferencaReformar = diferencaReformar * 6.97;
+                diferencaRegularizar = diferencaRegularizar * 6.19;
             } else if (areaTotalModificativo <= 20000){
-                areaModificada = areaModificada * 2.98;
-                diferencaConstruir = diferencaConstruir * 8.93;
-                diferencaReformar = diferencaReformar * 8.93;
-                diferencaRegularizar = diferencaRegularizar * 8.93;
+                areaModificada = areaModificada * 3.11;
+                diferencaConstruir = diferencaConstruir * 9.31;
+                diferencaReformar = diferencaReformar * 9.31;
+                diferencaRegularizar = diferencaRegularizar * 9.31;
             } else {
-                areaModificada = areaModificada * 4.47;
-                diferencaConstruir = diferencaConstruir * 11.90;
-                diferencaReformar = diferencaReformar * 11.90;
-                diferencaRegularizar = diferencaRegularizar * 11.90;
+                areaModificada = areaModificada * 4.66;
+                diferencaConstruir = diferencaConstruir * 12.41;
+                diferencaReformar = diferencaReformar * 12.41;
+                diferencaRegularizar = diferencaRegularizar * 12.41;
             }
 
             valor = (areaModificada + diferencaConstruir + diferencaReformar + diferencaRegularizar);
@@ -259,9 +259,9 @@ function calculate() {
             var quantidadeUnidades = parseFloat(document.getElementById('quantidadeUnidades').value);
             
             if (area <= 1500) {
-                valor = 1040.89 * quantidadeUnidades;
+                valor = 1085.23 * quantidadeUnidades;
             } else if (area > 1500) {
-                valor = 2081.82 * quantidadeUnidades;
+                valor = 2170.51 * quantidadeUnidades;
             } else {
                 valor = 0;
             }
@@ -279,7 +279,7 @@ function calculate() {
             var area = document.getElementById('area').value;
             if (!validateRequired(area, 'a área')) return;
             area = parseFloat(area);
-            valor = area * 2.98;
+            valor = area * 3.11;
             break;
 
         case 'acessibilidade':
@@ -293,11 +293,11 @@ function calculate() {
             areaConstruida = parseFloat(areaConstruida);
             
             if (areaConstruida <= 1500) {
-                valor = area * 2.98;
+                valor = area * 3.11;
             } else if (areaConstruida <= 20000) {
-                valor = area * 4.47;
+                valor = area * 4.66;
             } else if (areaConstruida > 20000) {
-                valor = area * 5.94;
+                valor = area * 6.19;
             } else {
                 valor = 0;
             }
@@ -322,9 +322,9 @@ function calculate() {
             areaConstruida = parseFloat(areaConstruida);
             
             if (areaConstruida <= 20000) {
-                valor = area * 2.98;
+                valor = area * 3.11;
             } else {
-                valor = area * 5.94;
+                valor = area * 6.19;
             }
             break;
 
@@ -339,7 +339,7 @@ function calculate() {
             var area = document.getElementById('area').value;
             if (!validateRequired(area, 'a quantidade de equipamentos')) return;
             area = parseFloat(area);
-            valor = area * 223.06;
+            valor = area * 232.56;
             break;
 
         case 'desmembramento_remembramento':
@@ -358,12 +358,12 @@ function calculate() {
             break;
 
         case 'execucao':
-            valor = 1070.66;
+            valor = 1116.27;
             break;
 
         default:
             valor = 0;
     }
 
-    resultado.textContent = 'Valor estimado do Preço Público: R$ ' + valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    resultado.textContent = 'Valor estimado: R$ ' + valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }

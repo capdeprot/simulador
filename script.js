@@ -365,5 +365,5 @@ function calculate() {
             valor = 0;
     }
 
-    resultado.textContent = 'Valor estimado: R$ ' + valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    resultado.textContent = 'Valor estimado: R$ ' + valor.toFixed(2).replace('.', ',');
 }

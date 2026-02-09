@@ -3,111 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Preços Públicos CAP/DEPROT</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="styles.css">
+    <title>Redirecionando - AD Calc</title>
+    <!-- Redirecionamento imediato (5 segundos) -->
+    <meta http-equiv="refresh" content="5; url='https://SEU-USUARIO.github.io/novo-repositorio'">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .loader {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid white;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        a {
+            color: #93c5fd;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Simulador de Preços Públicos CAP/DEPROT</h1>
-        <p class="observacao">
-            Conforme <a href="pdfs/tabela_precos_fevereiro_2026.pdf" target="_blank" rel="noopener noreferrer">Tabela de Taxas e Emolumentos atualizada em Fevereiro/2026</a>
-        </p>
+        <h1>🚀 AD Calc Atualizado!</h1>
+        <p>O simulador foi movido para um novo endereço.</p>
         
-        <form id="simuladorForm">
-            <div class="form-section">
-                <select id="assunto" onchange="changeLabel()" required>
-                    <option value="" disabled selected>Selecione o assunto</option>
-                    <option value="edificacao_nova">Alvará de Aprovação de Edificação Nova</option>
-                    <option value="execucao">Alvará de Execução</option>
-                    <option value="reforma">Alvará de Aprovação de Reforma</option>
-                    <option value="projeto_modificativo_edificacao">Projeto Modificativo de Alvará de Aprovação e Execução de Edificação Nova</option>
-                    <option value="projeto_modificativo_reforma">Projeto Modificativo de Alvará de Aprovação e Execução de Reforma</option>
-                    <option value="avanco_grua">Alvará de Autorização de Avanço de Grua Sobre o Espaço Público</option>
-                    <option value="tapume">Avanço do tapume sobre parte do passeio público</option>
-                    <option value="estande_vendas">Alvará de Autorização de Implantação e/ou Utilização de Estande de Vendas</option>
-                    <option value="alvara_heliponto">Alvará de Instalação de Heliponto</option>
-                    <option value="execucao_erb">Alvará de Execução de Estação Rádio Base - ERB</option>
-                    <option value="reuniao">Alvará de Funcionamento para Local de Reunião</option>
-                    <option value="certificado_seguranca">Certificado de Segurança</option>
-                    <option value="acessibilidade">Certificado de Acessibilidade</option>
-                    <option value="sistema_seguranca">Cadastro de Sistema Especial de Segurança</option>
-                    <option value="tanques_bombas">Cadastro ou Manutenção de tanque de armazenagem, bomba, filtro de combustível e equipamentos afins</option>
-                    <option value="desmembramento_remembramento">Alvará para Desmembramento/Remembramento</option>
-                    <option value="reparcelamento">Alvará para Reparcelamento</option>
-                    <option value="diretrizes_urbanisticas">Certidão de Diretrizes Urbanísticas</option>
-                    <!-- <option value="certificado_manutencao">Certificado de Manutenção do Sistema de Segurança (Via processo SEI)</option> -->
-                </select>
-            </div>
-
-            <!-- Campos padrão -->
-            <div id="areaStandardContainer" class="form-section">
-                <label id="areaLabel" for="area">Informe a área em m²:</label>
-                <input type="number" id="area" step="1" min="0" required>
-            </div>
-
-            <div id="areaConstruidaContainer" class="form-section">
-                <label for="areaConstruida">Área total construída (m²):</label>
-                <input type="number" id="areaConstruida" step="1" min="0" required>
-            </div>
-
-            <!-- Campos específicos para Reforma -->
-            <div id="reformaContainer" class="form-section" style="display: none;">
-                <label for="areaTotalUso">Área Total referente ao uso indicado (Computável + Não Computável) *</label>
-                <input type="number" id="areaTotalUso" step="1" min="0" required>
-                
-                <label for="areaTotalReformar">Total de Área a Reformar (Computável + Não Computável)</label>
-                <input type="number" id="areaTotalReformar" step="1" min="0">
-                
-                <label for="areaTotalRegularizar">Total de Área a Regularizar (Computável + Não Computável)</label>
-                <input type="number" id="areaTotalRegularizar" step="1" min="0">
-                
-                <label for="areaTotalConstruir">Total de Área a Construir (Computável + Não Computável)</label>
-                <input type="number" id="areaTotalConstruir" step="1" min="0">
-            </div>
-            
-            <!-- Campo específico para Quantidade de Unidades -->
-            <div id="quantidadeUnidadesContainer" class="form-section" style="display: none;">
-                <label for="quantidadeUnidades">Quantidade de unidades:</label>
-                <input type="number" id="quantidadeUnidades" step="1" min="1" value="1">
-            </div>
-
-            <!-- Campos específicos para Projeto Modificativo de Reforma -->
-            <div id="projetoModificativoReformaContainer" class="form-section" style="display: none;">
-                <h3>Quadro de áreas do Projeto Aprovado</h3>
-                <label for="areaConstruirAprovado">Área a construir (m²):</label>
-                <input type="number" id="areaConstruirAprovado" step="1" min="0" required>
-                <label for="areaReformarAprovado">Área a reformar (m²):</label>
-                <input type="number" id="areaReformarAprovado" step="1" min="0" required>
-                <label for="areaRegularizarAprovado">Área a regularizar (m²):</label>
-                <input type="number" id="areaRegularizarAprovado" step="1" min="0">
-                <label for="areaTotalAprovado">Área total (m²):</label>
-                <input type="number" id="areaTotalAprovado" step="1" min="0" required>
-            
-                <h3>Quadro de áreas do Projeto Modificativo</h3>
-                <label for="areaConstruirModificativo">Área a construir (m²):</label>
-                <input type="number" id="areaConstruirModificativo" step="1" min="0" required>
-                <label for="areaReformarModificativo">Área a reformar (m²):</label>
-                <input type="number" id="areaReformarModificativo" step="1" min="0" required>
-                <label for="areaRegularizarModificativo">Área a regularizar (m²):</label>
-                <input type="number" id="areaRegularizarModificativo" step="1" min="0">
-                <label for="areaTotalModificativo">Área total (m²):</label>
-                <input type="number" id="areaTotalModificativo" step="1" min="0" required>
-            </div>
-
-            <button type="button" onclick="calculate()">Calcular</button>
-
-            <p id="resultado"></p>
-        </form>
+        <div class="loader"></div>
+        
+        <p>Redirecionando em <span id="countdown">5</span> segundos...</p>
+        
+        <p>Se o redirecionamento não funcionar automaticamente,<br>
+           <a href="https://capdeprot.github.io/ADCalc/">clique aqui para acessar o novo AD Calc</a></p>
+        
+        <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
+        </p>
     </div>
 
-    <script src="script.js"></script>
-    <footer>
-    Desenvolvido por Anderson Andrade
-    </footer>
+    <script>
+        // Contador regressivo
+        let seconds = 5;
+        const countdownElement = document.getElementById('countdown');
+        
+        const interval = setInterval(() => {
+            seconds--;
+            countdownElement.textContent = seconds;
+            
+            if (seconds <= 0) {
+                clearInterval(interval);
+                window.location.href = 'https://SEU-USUARIO.github.io/novo-repositorio';
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
